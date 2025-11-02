@@ -17,9 +17,9 @@ test('if the isSunk function of ship really works', ()=>{
 })
 test('if the GameBoard put the ship on the specifc corrdinates', ()=>{
     const ship = new ships(3);
-    const gameboard = new Gameboard();
-    gameboard.placeShip(ship, 3, 5);
-    expect(gameboard.receiveAttack(3, 5)).toBe(true)
+    const gameBoard = new Gameboard();
+    gameBoard.placeShip(ship, 3, 5);
+    expect(gameBoard.receiveAttack(3, 5)).toBe(1)
 })
 
 

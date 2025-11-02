@@ -9,7 +9,7 @@ class Gameboard {
     }
     receiveAttack = (x, y)=>{
         if(this.gameboard[x][y] instanceof ships){
-            return true;
+           return(this.gameboard[x][y].hit());
         }
         return false;
 
