@@ -25,7 +25,7 @@ test('if the GameBoard put the ship on the specifc corrdinates', ()=>{
     gameBoard.placeShip(shipOne, 5, 5);
     gameBoard.receiveAttack(3, 5);
     gameBoard.receiveAttack(4, 5);
-  
+    gameBoard.receiveAttack(5, 5);
     expect(gameBoard.Sunk()).toBe(true);
 })
 
