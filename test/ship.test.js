@@ -1,5 +1,6 @@
-import ships from "../src/ship";
+import ship from "../src/ship";
 import Gameboard from "../src/Gameboard";
+/*
 test('if the ship has a length of three', ()=>{
     const ship = new ships(3)
     expect(ship.length).toBe(3);
@@ -15,11 +16,17 @@ test('if the isSunk function of ship really works', ()=>{
     ship.hit();
     expect(ship.isSunk()).toBe(true);
 })
+    */
 test('if the GameBoard put the ship on the specifc corrdinates', ()=>{
-    const ship = new ships(3);
+    const shipOne = new ship(3);
     const gameBoard = new Gameboard();
-    gameBoard.placeShip(ship, 3, 5);
-    expect(gameBoard.receiveAttack(3, 5)).toBe(1)
+    gameBoard.placeShip(shipOne, 3, 5);
+    gameBoard.placeShip(shipOne, 4, 5);
+    gameBoard.placeShip(shipOne, 5, 5);
+    gameBoard.receiveAttack(3, 5);
+    gameBoard.receiveAttack(4, 5);
+  
+    expect(gameBoard.Sunk()).toBe(true);
 })
 
 

@@ -1,17 +1,23 @@
-import ships from "./ship";
+import ship from "./ship";
 class Gameboard {
     constructor(){
         this.gameboard = Array(10).fill().map(()=> Array(10).fill(null));
+        this.allShips = [];
     }
-    placeShip = (ship, x, y)=> {
-        this.gameboard[x][y] = ship;
-        return (this.gameboard);
+    placeShip = (shipOne, x, y)=> {
+        this.gameboard[x][y] = shipOne;
+         this.allShips.push(this.gameboard[x][y])
+    }
+    Sunk = ()=>{
+       const AllsunkedShips =  this.allShips.every(ship=> ship.isSunk())
+       return(AllsunkedShips)
     }
     receiveAttack = (x, y)=>{
-        if(this.gameboard[x][y] instanceof ships){
-           return(this.gameboard[x][y].hit());
+        if(this.gameboard[x][y] instanceof ship){
+             this.gameboard[x][y].hit();
+            return(this.Sunk())
         }
-        return false;
+        this.gameboard[x][y] = "M"
 
     }
 }
