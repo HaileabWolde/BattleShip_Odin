@@ -13,7 +13,7 @@ html, body{
   header{
     text-align: center;
   }
-  .container{
+  .boards{
      height: 100%;
     width: 100%;
     display: flex;
@@ -21,7 +21,7 @@ html, body{
     justify-content: space-around;
     gap: 10px;
   }
-  .playerOne{
+  #p1, #p2{
     height: 50%;
     width: 30%;
     display: grid;
@@ -29,20 +29,12 @@ html, body{
     grid-template-rows: repeat(10, 1fr);
    border: solid #858C92 0.26rem;
   }
-  .playerTwo{
-       height: 50%;
-    width: 30%;
-     display: grid;
-      grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
-    border: solid #858C92 0.26rem
-  }
+ 
   .gridrow{
    grid-column-start: 1;
   grid-column-end: 11;
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  
   }
   .gridcol{
     background-color: white;
