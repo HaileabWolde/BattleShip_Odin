@@ -4,14 +4,15 @@ class Gameboard {
         this.gameboard = Array(10).fill().map(()=> Array(10).fill(null));
         this.allShips = [];
     }
-    placeShip = (shipOne, x, y)=> {
+    placeShip = (ship, x, y)=> {
         /*
         push the instance of the ship to the 2 dimensional
         array gameboard and then push each ship to the array of AllShips
         
         */
-        this.gameboard[x][y] = shipOne;
-         this.allShips.push(this.gameboard[x][y])
+        this.gameboard[x][y] = ship;
+         this.allShips.push(this.gameboard[x][y]);
+        console.log(this.gameboard);
     }
     Sunk = ()=>{
         /*

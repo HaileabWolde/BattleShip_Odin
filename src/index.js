@@ -1,4 +1,6 @@
 import "./style.css";
+import Player from "./Player";
+import ship from "./ship";
 const grids = document.getElementsByClassName('board');
 const rows = document.getElementsByClassName("gridrow");
 
@@ -18,9 +20,12 @@ for (let r of rows){
         r.appendChild(cell);
     }
 }
-const sendCoordinates = (rowId,e)=>{
-  console.log(`${rowId}${e.target.id}`)
-}
+
+const playerOne = new Player("Haileab")
+const shipOne = new ship(3);
 for (let r of rows){
- r.addEventListener('click', (e) => sendCoordinates(r.id, e))
+ r.addEventListener('click', (e) => playerOne.placeCoordinate(shipOne, r.id, e.target.id))
+ /*
+  this is Because it is defining a function not calling it. 
+ */
 }

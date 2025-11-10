@@ -1,6 +1,7 @@
 import ship from "../src/ship";
 import Gameboard from "../src/Gameboard";
 import Player from "../src/Player";
+import sendCoordinates from "../src/SendCoordiantes";
 /*
 test('if the ship has a length of three', ()=>{
     const ship = new ships(3)
@@ -29,7 +30,7 @@ test('if the GameBoard put the ship on the specifc corrdinates', ()=>{
     gameBoard.receiveAttack(5, 5);
     expect(gameBoard.Sunk()).toBe(true);
 })*/
-test('if the player object is right', ()=>{
+test('if DOM mainpulation of the Board send the corrdinates', ()=>{
     const shipOne = new ship();
     const playerOne = new Player("Haileab");
     expect(playerOne).toBe("Haileab")
