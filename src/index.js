@@ -23,16 +23,24 @@ for (let r of rows){
 }
 
 const playerOne = new Player("Haileab")
-startButton.addEventListener('click', ()=> {
-  for (let r of rows){
- r.addEventListener('click', (e) => {
-  let shipType = document.querySelector('#shipType').value;
-  let shipOne = new ship(shipType)
-  playerOne.placeCoordinate(shipOne, r.id, e.target.id)
- })
- /*
-  this is Because it is defining a function not calling it. 
- */
-}
-})
+startButton.addEventListener('click', () => {
+  for (let r of rows) {
+    r.addEventListener('click', (e) => {
+      const shipType = parseInt(document.querySelector('#shipType').value);
+      const grid = document.querySelector("#grid").value;
+      const shipOne = new ship(shipType);
+      const row = parseInt(r.id);
+      const col = parseInt(e.target.id);
 
+      for (let i = 0; i < shipType; i++) {
+        if (grid === 'horizontal') {
+        
+          playerOne.placeCoordinate(shipOne, row, col + i);
+        } else {
+        
+          playerOne.placeCoordinate(shipOne, row + i, col);
+        }
+      }
+    });
+  }
+});

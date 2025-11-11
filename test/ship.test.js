@@ -1,7 +1,7 @@
 import ship from "../src/ship";
 import Gameboard from "../src/Gameboard";
 import Player from "../src/Player";
-import sendCoordinates from "../src/SendCoordiantes";
+
 /*
 test('if the ship has a length of three', ()=>{
     const ship = new ships(3)
