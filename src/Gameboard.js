@@ -10,8 +10,10 @@ class Gameboard {
         array gameboard and then push each ship to the array of AllShips
         
         */
-        this.gameboard[x][y] = ship;
+       
+         this.gameboard[x][y] = ship;
          this.allShips.push(this.gameboard[x][y]);
+       
        console.log(this.gameboard)
     }
     Sunk = ()=>{

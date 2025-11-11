@@ -1,4 +1,5 @@
 import Gameboard from "./Gameboard";
+import ship from "./ship";
 class Player {
     constructor(name){
         this.name = name;
@@ -6,6 +7,12 @@ class Player {
     }
     placeCoordinate = (ship, rowId, colId)=> {
         this.gameBoard.placeShip(ship, rowId, colId)
+    }
+    checkCoordinate = (x, y)=>{
+        if(this.gameBoard.gameboard[x][y] instanceof ship){
+            return true
+        }
+        return false;
     }
      
 }
