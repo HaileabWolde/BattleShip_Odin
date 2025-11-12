@@ -1,5 +1,6 @@
 class ship {
     constructor(length){
+        this.length = length;
         if(length === 5){
             this.name = "Carrier"
         }

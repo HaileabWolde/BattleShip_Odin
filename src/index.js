@@ -1,6 +1,5 @@
 import "./style.css";
-import Player from "./Player";
-import ship from "./ship";
+import boardDom from "./DOM/boardDom";
 const grids = document.getElementsByClassName('board');
 const rows = document.getElementsByClassName("gridrow");
 const startButton = document.getElementById('start-btn');
@@ -22,40 +21,20 @@ for (let r of rows){
     }
 }
 
-const playerOne = new Player("Haileab")
 startButton.addEventListener('click', () => {
   for (let r of rows) {
     r.addEventListener('click', (e) => {
-      const shipType = parseInt(document.querySelector('#shipType').value);
-      const grid = document.querySelector("#grid").value;
-      const shipOne = new ship(shipType);
-      const row = parseInt(r.id);
-      const col = parseInt(e.target.id);
-      if(!playerOne.checkCoordinate(row, col)){
-          for (let i = 0; i < shipType; i++) {
-        if (grid === 'horizontal') {
-        
-          playerOne.placeCoordinate(shipOne, row, col + i);
-        } else {
-        
-          playerOne.placeCoordinate(shipOne, row + i, col);
-        }
-      }
-      shipsPlaced++;
+      boardDom(e, r, shipsPlaced)
       if( shipsPlaced < 3){
         setTimeout(()=>{
           alert('place another ship')
-        }, 2000)
+        }, 5000)
       }
       else if (shipsPlaced === 3){
         setTimeout(()=>{
           alert('All 3 ships placed - game ready!');
-        }, 2000)
-      }}
-      else {
-        alert('The Cell is Occupied By Another Ship')
+        }, 5000)
       }
-  });
-  }
+  })}
   
 });
