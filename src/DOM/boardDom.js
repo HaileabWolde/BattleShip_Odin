@@ -9,22 +9,22 @@ const boardDom = (e, r)=>{
       const col = parseInt(e.target.id);
       for ( let i = 0; i < shipType; i++){
         if(grid === 'horizontal'){
-          if(playerOne.checkCoordinate(row, col + i)){
-            alert('The Cell is Occupied By Another Ship')
+          if((row >= 10) || (col + i >= 10)){
+            alert(`You Can't place ${shipOne.name} ship here`)
             return false;
           }
-          else if((row >= 10) || (col + i >= 10)){
-            alert(`You Can't place ${shipOne.name} here`)
+          else if(playerOne.checkCoordinate(row, col + i)){
+            alert('The Cell is Occupied By Another Ship')
             return false;
           }
         }
         else {
-          if(playerOne.checkCoordinate(row + i, col)){
-            alert('The Cell is Occupied By Another Ship')
+          if((row + i >= 10) || (col >= 10)){
+            alert(`You Can't place ${shipOne.name} ship here`)
             return false;
           }
-           else if((row + i >= 10) && (col >= 10)){
-            alert(`You Can't place ${shipOne.name} here`)
+           else if(playerOne.checkCoordinate(row + i, col)){
+            alert('The Cell is Occupied By Another Ship')
             return false;
           }
         }
