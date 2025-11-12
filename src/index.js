@@ -24,16 +24,19 @@ for (let r of rows){
 startButton.addEventListener('click', () => {
   for (let r of rows) {
     r.addEventListener('click', (e) => {
-      boardDom(e, r, shipsPlaced)
+      if(!boardDom(e, r)){
+        return
+      }
+       shipsPlaced++;
       if( shipsPlaced < 3){
         setTimeout(()=>{
           alert('place another ship')
-        }, 5000)
+        }, 2000)
       }
       else if (shipsPlaced === 3){
         setTimeout(()=>{
           alert('All 3 ships placed - game ready!');
-        }, 5000)
+        }, 2000)
       }
   })}
   

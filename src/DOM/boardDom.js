@@ -1,7 +1,7 @@
 import Player from "../Class/Player";
 import ship from "../Class/ship";
 const playerOne = new Player("Haileab")
-const boardDom = (e, r,shipsPlaced)=>{
+const boardDom = (e, r)=>{
       const shipType = parseInt(document.querySelector('#shipType').value);
       const grid = document.querySelector("#grid").value;
       const shipOne = new ship(shipType);
@@ -11,21 +11,21 @@ const boardDom = (e, r,shipsPlaced)=>{
         if(grid === 'horizontal'){
           if(playerOne.checkCoordinate(row, col + i)){
             alert('The Cell is Occupied By Another Ship')
-            return;
+            return false;
           }
           else if((row >= 10) || (col + i >= 10)){
             alert(`You Can't place ${shipOne.name} here`)
-            return;
+            return false;
           }
         }
         else {
           if(playerOne.checkCoordinate(row + i, col)){
             alert('The Cell is Occupied By Another Ship')
-            return;
+            return false;
           }
            else if((row + i >= 10) && (col >= 10)){
             alert(`You Can't place ${shipOne.name} here`)
-            return;
+            return false;
           }
         }
       }
@@ -39,6 +39,6 @@ const boardDom = (e, r,shipsPlaced)=>{
           playerOne.placeCoordinate(shipOne, row + i, col);
         }
       }
-      shipsPlaced++;
+      return true;
 }
 export default boardDom;
