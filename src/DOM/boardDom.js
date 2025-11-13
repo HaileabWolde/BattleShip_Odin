@@ -31,14 +31,25 @@ const boardDom = (e, r)=>{
       }
      
       for (let i = 0; i < shipType; i++) {
-        if (grid === 'horizontal') {
-        
-          playerOne.placeCoordinate(shipOne, row, col + i);
-        } else {
-        
-          playerOne.placeCoordinate(shipOne, row + i, col);
-        }
-      }
+             if (grid === 'horizontal') {
+                   playerOne.placeCoordinate(shipOne, row, col + i);
+               const cellToColor = document.querySelector(
+                `.gridrow[id='${row}'] .gridcol[id='${col + i}']`);
+                if(cellToColor){
+                  cellToColor.style.backgroundColor = "black";
+                }
+              
+        } 
+  else {
+    playerOne.placeCoordinate(shipOne, row + i, col);
+     const cellToColor = document.querySelector(
+                `.gridrow[id='${row + i}'].gridcol[id='${col}']`);
+     if(cellToColor)
+      {
+           cellToColor.style.backgroundColor = "black";
+       }
+    }}
+
       return true;
 }
 export default boardDom;

@@ -24,9 +24,11 @@ for (let r of rows){
 startButton.addEventListener('click', () => {
   for (let r of rows) {
     r.addEventListener('click', (e) => {
+      console.log(e.target)
       if(!boardDom(e, r)){
         return
       }
+      
        shipsPlaced++;
       if( shipsPlaced < 3){
         setTimeout(()=>{

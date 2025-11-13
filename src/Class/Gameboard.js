@@ -14,7 +14,7 @@ class Gameboard {
          this.gameboard[x][y] = ship;
          this.allShips.push(this.gameboard[x][y]);
        
-       console.log(this.gameboard)
+      
     }
     Sunk = ()=>{
         /*
