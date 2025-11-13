@@ -1,5 +1,6 @@
 import Player from "../Class/Player";
 import ship from "../Class/ship";
+import shipColors from "./shipColor";
 const playerOne = new Player("Haileab")
 const boardDom = (e, r)=>{
       const shipType = parseInt(document.querySelector('#shipType').value);
@@ -36,18 +37,17 @@ const boardDom = (e, r)=>{
                const cellToColor = document.querySelector(
                 `.gridrow[id='${row}'] .gridcol[id='${col + i}']`);
                 if(cellToColor){
-                  cellToColor.style.backgroundColor = "black";
+                  cellToColor.style.backgroundColor = shipColors[shipOne.name];
                 }
               
         } 
-  else {
-    playerOne.placeCoordinate(shipOne, row + i, col);
-     const cellToColor = document.querySelector(
-                `.gridrow[id='${row + i}'].gridcol[id='${col}']`);
-     if(cellToColor)
-      {
-           cellToColor.style.backgroundColor = "black";
-       }
+           else {
+                   playerOne.placeCoordinate(shipOne, row + i, col);
+                  const cellToColor = document.querySelector(
+                `.gridrow[id='${row + i}'] .gridcol[id='${col}']`);
+                if(cellToColor){
+                  cellToColor.style.backgroundColor = shipColors[shipOne.name];
+                }
     }}
 
       return true;

@@ -20,11 +20,9 @@ for (let r of rows){
         r.appendChild(cell);
     }
 }
-
-startButton.addEventListener('click', () => {
+const startfunction = ()=>{
   for (let r of rows) {
     r.addEventListener('click', (e) => {
-      console.log(e.target)
       if(!boardDom(e, r)){
         return
       }
@@ -33,13 +31,14 @@ startButton.addEventListener('click', () => {
       if( shipsPlaced < 3){
         setTimeout(()=>{
           alert('place another ship')
-        }, 2000)
+        }, 1000)
       }
       else if (shipsPlaced === 3){
         setTimeout(()=>{
           alert('All 3 ships placed - game ready!');
-        }, 2000)
+        }, 1000)
+         startButton.removeEventListener('click', startfunction)
       }
   })}
-  
-});
+}
+startButton.addEventListener('click', startfunction());

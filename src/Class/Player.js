@@ -7,6 +7,7 @@ class Player {
     }
     placeCoordinate = (ship, rowId, colId)=> {
         this.gameBoard.placeShip(ship, rowId, colId)
+        console.log(this.gameBoard.gameboard)
     }
     checkCoordinate = (x, y)=>{
         if(this.gameBoard.gameboard[x][y] instanceof ship){
