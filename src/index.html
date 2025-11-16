@@ -10,27 +10,48 @@
         <h1>BattleShip</h1>
     </header>
     <div class="boards">
-        <div id="p1" class="board"></div>
-         <div id="p2" class="board"></div>
+        <div id="boardOne" class="board"></div>
+         <div id="boardTwo" class="board"></div>
         
     </div>
     <div class="inputfield">
-       <p>Choose a Ship</p>
-       <select id="shipType">
-            <option value="5" class="ship">Carrier</option>
-             <option value="4" class="ship">BattleShip</option>
-              <option value="3" class="ship">Cruiser</option>
-               <option value="2" class="ship">Destroyer</option>
-       </select>
-       <select id="grid">
-            <option value="horizontal">
-                Horizontal
-            </option>
-            <option value="vertical">
-                Vertical
-            </option>
-       </select>
-       <button id="start-btn" > Start Game</button>
+        <div class="inputfieldOne">
+                <p>Choose a Ship</p>
+                <select id="shiptypeOne">
+                    <option value="5" class="ship">Carrier</option>
+                    <option value="4" class="ship">BattleShip</option>
+                    <option value="3" class="ship">Cruiser</option>
+                    <option value="2" class="ship">Destroyer</option>
+                </select>
+             <select id="gridOne">
+                    <option value="horizontal">
+                            Horizontal
+                    </option>
+                    <option value="vertical">
+                              Vertical
+                     </option>
+            </select>
+        </div>
+        <div class="inputfieldTwo">
+                <p>Choose a Ship</p>
+                <select id="shiptypeTwo">
+                    <option value="5" class="ship">Carrier</option>
+                     <option value="4" class="ship">BattleShip</option>
+                     <option value="3" class="ship">Cruiser</option>
+                    <option value="2" class="ship">Destroyer</option>
+                </select>
+                <select id="gridTwo">
+                    <option value="horizontal">
+                             Horizontal
+                    </option>
+                    <option value="vertical">
+                              Vertical
+                         </option>
+                 </select>
+
+    </div>
+        </div>
+        <button id="start-btn" > Start Game</button>
     </div>
 </body>
 </html>

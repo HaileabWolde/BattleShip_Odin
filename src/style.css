@@ -24,7 +24,7 @@ html, body{
     justify-content: space-around;
     gap: 10px;
   }
-  #p1, #p2{
+  #boardOne, #boardTwo{
     height: 90%;
     width: 30%;
     display: grid;
@@ -67,9 +67,15 @@ html, body{
     border-image: initial;
     border-radius: 5px;
     padding: 10px 20px;
+    display: flex;
+    justify-self: center;
   }
   #start-btn:hover{
     background-color: rgb(10, 111, 155);
     scale: 1.05;
     transition: 0.3s;
+  }
+  .inputfield{
+    display: flex;
+    justify-content: space-around;
   }
