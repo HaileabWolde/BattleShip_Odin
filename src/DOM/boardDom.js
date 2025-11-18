@@ -1,19 +1,16 @@
-import Player from "../Class/Player";
-import ship from "../Class/ship";
+import Player from "../game/Player";
+import ship from "../game/ship";
 import shipColors from "./shipColor";
+import cacheDom from "./cacheDom";
 const playerOne = new Player("JackSparrow");
 const playerTwo = new Player("DavyJones");
-const boardDom = (e, r, parentNode)=>{
-      let shipTypeOne = parseInt(document.querySelector('#shiptypeOne').value)
-      let shipTypeTwo = parseInt(document.querySelector('#shiptypeTwo').value);
-      let gridOne = document.querySelector('#gridOne').value;
-      let gridTwo = document.querySelector('#gridTwo').value;
+export const boardDom = (e, r, parentNode)=>{
+  let { shipTypeOne,shipTypeTwo,  gridOne, gridTwo} = cacheDom();
       let grid = (parentNode === "boardOne") ? gridOne : gridTwo;
       let shipType = (parentNode === "boardOne") ? shipTypeOne : shipTypeTwo
       const shipOne = new ship(shipType);
       const row = parseInt(r.id);
       const col = parseInt(e.target.id);
-      console.log(grid)
       for ( let i = 0; i < shipType; i++){
         if(grid === 'horizontal'){
           if((row >= 10) || (col + i >= 10)){
@@ -87,4 +84,3 @@ const boardDom = (e, r, parentNode)=>{
 
       return true;
 }
-export default boardDom;
