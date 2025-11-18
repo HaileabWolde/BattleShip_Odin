@@ -6,7 +6,6 @@ import createGrid from "./dom/createGrid";
 
 const { rows} = cacheDom();
 const startButton = document.getElementById('start-btn');
-
 createGrid();
 startButton.addEventListener('click', () => {
   for (let r of rows) {

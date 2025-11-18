@@ -1,4 +1,3 @@
-
 const cacheDom = ()=>{
     const grids =  document.getElementsByClassName('board');
     const rows = document.getElementsByClassName("gridrow");
