@@ -1,5 +1,5 @@
 import "./style.css";
-import { handleCellClick} from "./dom/event";
+import { handleCellClick } from "./dom/event/event";
 import cacheDom from "./dom/cacheDom";
 import createGrid from "./dom/createGrid";
 
