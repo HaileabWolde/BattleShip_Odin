@@ -91,7 +91,7 @@ function switchTurns(currentBoardId, otherBoard) {
   } else if (currentBoardId === "boardTwo" && shipsPlacedTwo === 3) {
 
     setTimeout(() => {
-  alert("Board One done!");
+  alert("Board Two done!");
   colorDisapper(currentBoardId);
   addListenersToBoard(otherBoard);
 }, 1000);
