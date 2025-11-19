@@ -79,3 +79,6 @@ html, body{
     display: flex;
     justify-content: space-around;
   }
+  .cellInvisible{
+    background-color: white;
+  }

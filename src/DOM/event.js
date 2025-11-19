@@ -29,7 +29,9 @@ export function handleCellClick(e) {
   
 
   if (shipsPlacedOne === 3 && shipsPlacedTwo === 3) {
-    alert("Both boards ready!");
+      setTimeout(()=>{
+         alert("Both Boards are ready");
+    }, 1000)
     removeAllListeners();
   }
   else {
@@ -57,11 +59,17 @@ export function removeAllListeners() {
 
 function switchTurns(currentBoardId, otherBoard) {
   if (currentBoardId === "boardOne" && shipsPlacedOne === 3) {
-    alert("Board One done!");
+    setTimeout(()=>{
+         alert("Board One done!");
+    }, 1000)
+  
     addListenersToBoard(otherBoard);
   }
   else if (currentBoardId === "boardTwo" && shipsPlacedTwo === 3) {
-    alert("Board Two done!");
+    setTimeout(()=>{
+         alert("Board Two done!");
+    }, 1000)
+  
     addListenersToBoard(otherBoard);
   }
 }
