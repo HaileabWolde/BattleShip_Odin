@@ -43,6 +43,8 @@ html, body{
     background-color: white;
     border: solid #333 1px;
     cursor: pointer;
+     /* Add smooth transition */
+  transition: background-color 0.6s ease, opacity 0.6s ease;
   }
  select{
     background-color: rgb(248, 249, 250);
@@ -79,6 +81,7 @@ html, body{
     display: flex;
     justify-content: space-around;
   }
-  .cellInvisible{
-    background-color: white;
-  }
+  .fade-out {
+  opacity: 0;
+  background-color: white !important;
+}

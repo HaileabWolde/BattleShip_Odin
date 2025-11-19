@@ -31,6 +31,7 @@ export function handleCellClick(e) {
   if (shipsPlacedOne === 3 && shipsPlacedTwo === 3) {
       setTimeout(()=>{
          alert("Both Boards are ready");
+         colorDisapper(parentNodeid);
     }, 1000)
     removeAllListeners();
   }
@@ -57,19 +58,43 @@ export function removeAllListeners() {
   }
 }
 
+ export const colorDisapper = (currentBoardId) => {
+  let originalBoard = document.querySelector(`.board[id='${currentBoardId}']`);
+  
+  for (const row of originalBoard.children) {
+    for (const col of row.children) {
+      col.classList.add("fade-out");
+    }
+  }
+
+  // After animation finishes, clear background
+  setTimeout(() => {
+    for (const row of originalBoard.children) {
+      for (const col of row.children) {
+        col.style.backgroundColor = "white";
+        col.classList.remove("fade-out");
+      }
+    }
+  }, 600); // match the CSS transition time
+};
+
 function switchTurns(currentBoardId, otherBoard) {
   if (currentBoardId === "boardOne" && shipsPlacedOne === 3) {
-    setTimeout(()=>{
-         alert("Board One done!");
-    }, 1000)
-  
-    addListenersToBoard(otherBoard);
-  }
-  else if (currentBoardId === "boardTwo" && shipsPlacedTwo === 3) {
-    setTimeout(()=>{
-         alert("Board Two done!");
-    }, 1000)
-  
-    addListenersToBoard(otherBoard);
+
+   setTimeout(() => {
+  alert("Board One done!");
+  colorDisapper(currentBoardId);
+  addListenersToBoard(otherBoard);
+}, 1000);
+
+
+  } else if (currentBoardId === "boardTwo" && shipsPlacedTwo === 3) {
+
+    setTimeout(() => {
+  alert("Board One done!");
+  colorDisapper(currentBoardId);
+  addListenersToBoard(otherBoard);
+}, 1000);
+
   }
 }
