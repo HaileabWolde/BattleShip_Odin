@@ -1,10 +1,7 @@
-import Player from "../game/Player";
 import ship from "../game/ship";
 import shipColors from "./shipColor";
 import cacheDom from "./cacheDom";
-
-const playerOne = new Player("JackSparrow");
-const playerTwo = new Player("DavyJones");
+import { playerOne, playerTwo } from "../game/gameState";
 
 export const boardDom = (e, rowElement, boardId) => {
   const { shipTypeOne, shipTypeTwo, gridOne, gridTwo } = cacheDom();
@@ -63,5 +60,5 @@ export const boardDom = (e, rowElement, boardId) => {
     colorCell(targetRow, targetCol);
   }
 
-  return true;
+  return {playerOne, playerTwo}
 };

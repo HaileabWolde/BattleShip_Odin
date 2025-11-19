@@ -1,5 +1,6 @@
 import cacheDom from "./cacheDom";
 import { boardDom } from "./boardDom";
+import { playerOne, playerTwo } from "../game/gameState";
 let shipsPlacedOne = 0;
 let shipsPlacedTwo = 0;
 
@@ -32,14 +33,39 @@ export function handleCellClick(e) {
       setTimeout(()=>{
          alert("Both Boards are ready");
          colorDisapper(parentNodeid);
+         removeAllListeners();
+         shipAttackListeners(parentNodeid);
     }, 1000)
-    removeAllListeners();
   }
   else {
     switchTurns(parentNodeid, oppositeBoard);
   }
 }
-
+export function attackListner(e){
+   const r = e.currentTarget; // current clicked row
+  const parentNodeid =  r.parentNode.id;
+  console.log(r)
+  const parentBoard =   document.querySelector(`.board[id='${parentNodeid}']`);
+  let oppositeBoard = null;
+  for (let g of grids){
+    if(g.id != parentNodeid){
+      oppositeBoard = g;
+    }
+  }
+  for (const rows of parentBoard.children){
+    rows.removeEventListener('click', attackListner)
+  }
+  for (const rows of oppositeBoard.children){
+    rows.addEventListener('click', attackListner)
+  }
+}
+export function shipAttackListeners(){
+  alert('Player One  can start attacking the ships')
+  let boardDavyJones = document.querySelector(`.board[id='boardTwo']`);
+  for (const row of boardDavyJones.children){
+    row.addEventListener('click', attackListner)
+  }
+}
 export function addListenersToBoard(board) {
   for (const row of board.children) {
     row.addEventListener("click", handleCellClick);
