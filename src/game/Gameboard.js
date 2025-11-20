@@ -39,5 +39,8 @@ class Gameboard {
         return false;
 
     }
+    returnAllShip = ()=>{
+        return this.allShips
+    }
 }
 export default Gameboard;

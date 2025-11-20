@@ -3,7 +3,7 @@ import { boardDom } from "../boardDom";
 import { removeAllListeners, removeListenersFromBoard} from "./removeListners";
 import { colorDisapper } from "../cellDom";
 import { addListenersToBoard } from "./addListener";
-import { shipAttackListener } from "./shipAttack";
+import { shipAttackListener, shipColor} from "./ship";
 
 
 let shipsPlacedOne = 0;
@@ -39,7 +39,8 @@ export function handleCellClick(e) {
                alert("Both Boards are ready");
               colorDisapper(parentNodeid);
               removeAllListeners();
-              shipAttackListener(parentNodeid);
+              shipColor();
+              shipAttackListener();
            }, 1000)
   }
   else {
