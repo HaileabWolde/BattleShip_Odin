@@ -1,6 +1,7 @@
 import cacheDom from "../cacheDom";
 import { boardDom } from "../boardDom";
-import { removeAllListeners, removeListenersFromBoard, colorDisapper} from "./removeListners";
+import { removeAllListeners, removeListenersFromBoard} from "./removeListners";
+import { colorDisapper } from "../cellDom";
 import { addListenersToBoard } from "./addListener";
 import { shipAttackListener } from "./shipAttack";
 

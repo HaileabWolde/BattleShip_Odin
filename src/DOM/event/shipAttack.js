@@ -1,56 +1,5 @@
-import cacheDom from "../cacheDom";
-import { playerOne, playerTwo } from "../../game/gameState";
-const {grids, rows} = cacheDom();
+import { attackCell } from "../cellDom";
 
-export function attackCell(e){
-
-  const colorAttackedCell = (boardId, r, c)=>{
-    const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
-    const cell = document.querySelector(selector);
-    if (cell) cell.style.backgroundColor = "black";
-  }
-
-
-
-   const r = e.currentTarget; // current clicked row
-  const parentNodeid =  r.parentNode.id;
-  const parentBoard =   document.querySelector(`.board[id='${parentNodeid}']`);
-  const row = parseInt(r.id)
-  const col = parseInt(e.target.id)
-  let oppositeBoard = null;
-  for (let g of grids){
-    if(g.id != parentNodeid){
-      oppositeBoard = g;
-    }
-  }
-  if((playerOne.gameBoard.Sunk()) || playerTwo.gameBoard.Sunk()){
-     if(playerOne.gameBoard.Sunk()){
-      alert(`Game Over ${playerTwo.name} Won`)
-     }
-     else {
-      alert(`Game Over ${playerOne.name} Won`)
-     }
-    for( let r of rows){
-      r.removeEventListener("click", attackCell)
-      }
-  }
-  else {
-        let player = (parentNodeid === "boardOne") ? playerOne: playerTwo;
-        if (player.gameBoard.receiveAttack(row, col)) {
-            colorAttackedCell(parentNodeid, row, col)
-           if(player.gameBoard.gameboard[row][col].isSunk()){
-            alert("Ship has been sacked")
-           }
-        }
-       for (const rows of parentBoard.children){
-             rows.removeEventListener('click', attackCell)
-       }
-       for (const rows of oppositeBoard.children){
-                rows.addEventListener('click', attackCell)
-      }
-  }
-  
-}
 
 export function shipAttackListener(){
   alert('Player One  can start attacking the ships')
