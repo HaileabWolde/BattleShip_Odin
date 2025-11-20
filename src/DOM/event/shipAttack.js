@@ -3,6 +3,15 @@ import { playerOne, playerTwo } from "../../game/gameState";
 const {grids, rows} = cacheDom();
 
 export function attackCell(e){
+
+  const colorAttackedCell = (boardId, r, c)=>{
+    const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
+    const cell = document.querySelector(selector);
+    if (cell) cell.style.backgroundColor = "black";
+  }
+
+
+
    const r = e.currentTarget; // current clicked row
   const parentNodeid =  r.parentNode.id;
   const parentBoard =   document.querySelector(`.board[id='${parentNodeid}']`);
@@ -23,6 +32,7 @@ export function attackCell(e){
   else {
         let player = (parentNodeid === "boardOne") ? playerOne: playerTwo;
         if (player.gameBoard.receiveAttack(row, col)) {
+            colorAttackedCell(parentNodeid, row, col)
            if(player.gameBoard.gameboard[row][col].isSunk()){
             alert("Ship has been sacked")
            }
