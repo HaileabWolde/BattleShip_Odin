@@ -33,8 +33,7 @@ class Gameboard {
         */
         if(this.gameboard[x][y] instanceof ship){
             this.gameboard[x][y].hit()
-             console.log(hit)
-             return true
+           return this.gameboard[x][y]
         }
         this.gameboard[x][y] = "M"
         return false;

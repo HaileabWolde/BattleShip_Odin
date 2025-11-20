@@ -22,13 +22,17 @@ export function attackCell(e){
   }
   else {
         let player = (parentNodeid === "boardOne") ? playerOne: playerTwo;
-        if (player.gameBoard.receiveAttack(row, col)) alert("ship has been hit");
-     for (const rows of parentBoard.children){
+        if (player.gameBoard.receiveAttack(row, col)) {
+           if(player.gameBoard.gameboard[row][col].isSunk()){
+            alert("Ship has been sacked")
+           }
+        }
+       for (const rows of parentBoard.children){
              rows.removeEventListener('click', attackCell)
-     }
-    for (const rows of oppositeBoard.children){
+       }
+       for (const rows of oppositeBoard.children){
                 rows.addEventListener('click', attackCell)
-    }
+      }
   }
   
 }
