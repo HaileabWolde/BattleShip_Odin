@@ -24,10 +24,15 @@ export function attackCell(e){
     }
   }
   if((playerOne.gameBoard.Sunk()) || playerTwo.gameBoard.Sunk()){
-            alert('Game Over')
-            for( let r of rows){
-                    r.removeEventListener("click", attackCell)
-            }
+     if(playerOne.gameBoard.Sunk()){
+      alert(`Game Over ${playerTwo.name} Won`)
+     }
+     else {
+      alert(`Game Over ${playerOne.name} Won`)
+     }
+    for( let r of rows){
+      r.removeEventListener("click", attackCell)
+      }
   }
   else {
         let player = (parentNodeid === "boardOne") ? playerOne: playerTwo;
