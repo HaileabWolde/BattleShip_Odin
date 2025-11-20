@@ -41,15 +41,14 @@ export const endGame = (player)=>{
     const cell = attacker.gameBoard.receiveAttack(row, col);
 
     if (!cell) return;
-
    colorAttackedCell(parentNodeid, row, col);
-
+   
   if (cell && cell.isSunk()) {
-    animateSunkShip(parentNodeid, row, col);
+    animateSunkShip(parentNodeid, cell);
 
     setTimeout(() => {
       alert(`${cell.name} has been sunk!`);
-    }, 700); // let animation show first
+    }, 1000); // let animation show first
   }
         
  }

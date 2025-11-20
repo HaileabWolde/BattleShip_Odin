@@ -12,10 +12,12 @@ export const boardDom = (e, rowElement, boardId) => {
   const shipType = isBoardOne ? shipTypeOne : shipTypeTwo;
   const player = isBoardOne ? playerOne : playerTwo;
 
-  const shipInstance = new ship(shipType);
 
   const row = parseInt(rowElement.id);
   const col = parseInt(e.target.id);
+
+  const shipInstance = new ship(shipType);
+
 
   // --------------------------
   // Helpers
@@ -58,6 +60,7 @@ export const boardDom = (e, rowElement, boardId) => {
 
     player.placeCoordinate(shipInstance, targetRow, targetCol);
     colorCell(targetRow, targetCol);
+    shipInstance.placeCoordinate(targetRow, targetCol)
   }
 
   return {playerOne, playerTwo}
