@@ -87,9 +87,11 @@ html, body{
 }
 .cell-hit {
   background-color: red !important;
+
   transition: background-color 0.4s ease-in;
-}
+}/*
 /* Flash red/yellow when a ship sinks */
+
 .cell-sunk {
   animation: sunkPulse 0.6s ease-out 3;
 }

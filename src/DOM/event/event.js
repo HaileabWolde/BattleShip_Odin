@@ -1,9 +1,10 @@
 import cacheDom from "../cacheDom";
 import { boardDom } from "../boardDom";
+import { shipColor } from "./ship";
 import { removeAllListeners, removeListenersFromBoard} from "./removeListners";
 import { colorDisapper } from "../cellDom";
 import { addListenersToBoard } from "./addListener";
-import { shipAttackListener, shipColor} from "./ship";
+import { shipAttackListener} from "./ship";
 
 
 let shipsPlacedOne = 0;
@@ -14,6 +15,7 @@ const {grids} = cacheDom();
 export function handleCellClick(e) {
   
   const r = e.currentTarget; // current clicked row
+  const parentNode = r.parentNode
   const parentNodeid =  r.parentNode.id;
   let oppositeBoard = null;
   for (let g of grids){
@@ -39,7 +41,7 @@ export function handleCellClick(e) {
                alert("Both Boards are ready");
               colorDisapper(parentNodeid);
               removeAllListeners();
-              shipColor();
+             shipColor(oppositeBoard, parentNode);
               shipAttackListener();
            }, 1000)
   }

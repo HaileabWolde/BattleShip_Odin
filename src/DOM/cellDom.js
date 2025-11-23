@@ -1,6 +1,7 @@
 import { playerOne, playerTwo } from "../game/gameState";
 import { animateSunkShip } from "../Animate/animateSunkShip";
 import cacheDom from "./cacheDom";
+import { shipColor } from "./event/ship";
 
 const {rows, grids} = cacheDom();
 
@@ -37,8 +38,8 @@ export const endGame = (player)=>{
       }
   }
  
- export const handleAttack = (attacker, row , col, parentNodeid)=>{
-    const cell = attacker.gameBoard.receiveAttack(row, col);
+ export const handleAttack = (attacked, row , col, parentNodeid)=>{
+    const cell = attacked.gameBoard.receiveAttack(row, col);
 
     if (!cell) return;
    colorAttackedCell(parentNodeid, row, col);
@@ -59,6 +60,7 @@ export const endGame = (player)=>{
        for (const rows of oppositeBoard.children){
                 rows.addEventListener('click', attackCell)
       }
+      shipColor(parentBoard, oppositeBoard)
  }
 export function attackCell(e){
     const r = e.currentTarget; // current clicked row
@@ -67,15 +69,15 @@ export function attackCell(e){
    const row = parseInt(r.id);
    const col = parseInt(e.target.id);
    let oppositeBoard = null;
-   const attacker =  parentNodeid === "boardOne" ? playerOne : playerTwo;
+   const attacked =  parentNodeid === "boardOne" ? playerOne : playerTwo;
    for (let g of grids){
      if(g.id != parentNodeid){
       oppositeBoard = g;
      }
    }
-   if((attacker.gameBoard.Sunk())){
-     endGame(attacker === playerOne ? playerTwo : playerOne);
+   if((attacked.gameBoard.Sunk())){
+     endGame(attacked === playerOne ? playerTwo : playerOne);
    }
-    handleAttack(attacker, row, col, parentNodeid)
+    handleAttack(attacked, row, col, parentNodeid)
     switchTurn(parentBoard, oppositeBoard) 
 }
