@@ -1,11 +1,11 @@
-import { playerOne, playerTwo } from "../game/gameState";
-import { animateSunkShip } from "../Animate/animateSunkShip";
+import { playerOne, playerTwo } from "../../game/gameState";
+import { animateSunkShip } from "../../Animate/animateSunkShip";
 import cacheDom from "./cacheDom";
-import { shipColor } from "./event/ship";
+import { shipsAppear } from "../event/ship";
 
 const {rows, grids} = cacheDom();
 
-export const colorDisapper = (currentBoardId) => {
+export const shipsDisapper = (currentBoardId) => {
   let originalBoard = document.querySelector(`.board[id='${currentBoardId}']`);
   
   for (const row of originalBoard.children) {
@@ -25,7 +25,7 @@ export const colorDisapper = (currentBoardId) => {
   }, 600); // match the CSS transition time
 };
 
-export  const colorAttackedCell = (boardId, r, c)=>{
+export  const attackedShip = (boardId, r, c)=>{
     const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
     const cell = document.querySelector(selector);
     cell.classList.add("cell-hit");
@@ -42,7 +42,7 @@ export const endGame = (player)=>{
     const cell = attacked.gameBoard.receiveAttack(row, col);
 
     if (!cell) return;
-   colorAttackedCell(parentNodeid, row, col);
+   attackedShip(parentNodeid, row, col);
    
   if (cell && cell.isSunk()) {
     animateSunkShip(parentNodeid, cell);
@@ -60,7 +60,7 @@ export const endGame = (player)=>{
        for (const rows of oppositeBoard.children){
                 rows.addEventListener('click', attackCell)
       }
-      shipColor(parentBoard, oppositeBoard)
+      shipsAppear(parentBoard, oppositeBoard)
  }
 export function attackCell(e){
     const r = e.currentTarget; // current clicked row

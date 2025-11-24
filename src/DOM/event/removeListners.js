@@ -1,5 +1,6 @@
 import { handleCellClick } from "./event";
-import cacheDom from "../cacheDom";
+import cacheDom from "../Dom/cacheDom";
+
 
 const {rows} = cacheDom();
 

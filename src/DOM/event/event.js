@@ -1,8 +1,8 @@
-import cacheDom from "../cacheDom";
-import { boardDom } from "../boardDom";
-import { shipColor } from "./ship";
+import cacheDom from "../Dom/cacheDom";
+import { boardDom } from "../Dom/boardDom";
+import { shipsAppear } from "./ship";
 import { removeAllListeners, removeListenersFromBoard} from "./removeListners";
-import { colorDisapper } from "../cellDom";
+import { shipsDisapper } from "../Dom/cellDom";
 import { addListenersToBoard } from "./addListener";
 import { shipAttackListener} from "./ship";
 
@@ -39,9 +39,9 @@ export function handleCellClick(e) {
   if (shipsPlacedOne === 3 && shipsPlacedTwo === 3) {
           setTimeout(()=>{
                alert("Both Boards are ready");
-              colorDisapper(parentNodeid);
+              shipsDisapper(parentNodeid);
               removeAllListeners();
-             shipColor(oppositeBoard, parentNode);
+             shipsAppear(oppositeBoard, parentNode);
               shipAttackListener();
            }, 1000)
   }
@@ -54,7 +54,7 @@ function switchTurns(currentBoardId, otherBoard) {
   if (currentBoardId === "boardOne" && shipsPlacedOne === 3) {
          setTimeout(() => {
                  alert("Board One done!");
-                colorDisapper(currentBoardId);
+                shipsDisapper(currentBoardId);
                  addListenersToBoard(otherBoard);
                    removeListenersFromBoard(currentBoardId)
         }, 1000);
@@ -64,7 +64,7 @@ function switchTurns(currentBoardId, otherBoard) {
 
               setTimeout(() => {
                         alert("Board Two done!");
-                        colorDisapper(currentBoardId);
+                       shipsDisapper(currentBoardId);
                         addListenersToBoard(otherBoard);
                         removeListenersFromBoard(currentBoardId)
                 }, 1000);

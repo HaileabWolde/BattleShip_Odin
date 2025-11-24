@@ -1,7 +1,7 @@
 import "./style.css";
 import { handleCellClick } from "./dom/event/event";
-import cacheDom from "./dom/cacheDom";
-import createGrid from "./dom/createGrid";
+import cacheDom from "./dom/Dom/cacheDom";
+import createGrid from "./dom/Dom/createGrid";
 
 
 const { rows} = cacheDom();

@@ -1,7 +1,6 @@
-import ship from "../game/ship";
-import shipColors from "./shipColor";
+import ship from "../../game/ship";
 import cacheDom from "./cacheDom";
-import { playerOne, playerTwo } from "../game/gameState";
+import { playerOne, playerTwo } from "../../game/gameState";
 
 export const boardDom = (e, rowElement, boardId) => {
   const { shipTypeOne, shipTypeTwo, gridOne, gridTwo } = cacheDom();
@@ -30,7 +29,7 @@ export const boardDom = (e, rowElement, boardId) => {
   const colorCell = (r, c) => {
     const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
     const cell = document.querySelector(selector);
-    if (cell) cell.style.backgroundColor = shipColors[shipInstance.name];
+    if (cell) cell.style.backgroundColor = "black";
   };
 
   // --------------------------
