@@ -1,7 +1,7 @@
 import { playerOne, playerTwo } from "../../game/gameState";
 import { animateSunkShip } from "../../Animate/animateSunkShip";
 import cacheDom from "./cacheDom";
-import { shipsAppear } from "../event/ship";
+import { shipsAppear, attackedShip, missedShip } from "../event/ship";
 
 const {rows, grids} = cacheDom();
 
@@ -25,11 +25,6 @@ export const shipsDisapper = (currentBoardId) => {
   }, 600); // match the CSS transition time
 };
 
-export  const attackedShip = (boardId, r, c)=>{
-    const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
-    const cell = document.querySelector(selector);
-    cell.classList.add("cell-hit");
-  }
 
 export const endGame = (player)=>{
     alert(`${player.name} has won`)
@@ -41,7 +36,9 @@ export const endGame = (player)=>{
  export const handleAttack = (attacked, row , col, parentNodeid)=>{
     const cell = attacked.gameBoard.receiveAttack(row, col);
 
-    if (!cell) return;
+    if (!cell) {
+      missedShip(parentNodeid, row, col)
+      return};
    attackedShip(parentNodeid, row, col);
    
   if (cell && cell.isSunk()) {

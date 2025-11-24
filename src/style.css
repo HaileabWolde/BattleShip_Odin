@@ -91,7 +91,10 @@ html, body{
   transition: background-color 0.4s ease-in;
 }/*
 /* Flash red/yellow when a ship sinks */
-
+.cell-miss {
+   background-color: #87CEFA !important; /* light sky blue */
+  transition: background-color 0.3s ease;
+}
 .cell-sunk {
   animation: sunkPulse 0.6s ease-out 3;
 }

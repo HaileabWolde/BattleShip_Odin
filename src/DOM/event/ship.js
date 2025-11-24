@@ -34,3 +34,15 @@ export function   shipsAppear(onShipsBoard, offloadShipsBoard){
 }
 
 }
+export  const attackedShip = (boardId, r, c)=>{
+    const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
+    const cell = document.querySelector(selector);
+    cell.classList.add("cell-hit");
+  }
+
+  export const missedShip = (boardId, r, c)=> {
+    console.log("fuck off")
+     const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
+    const cell = document.querySelector(selector);
+    cell.classList.add("cell-miss");
+  }
