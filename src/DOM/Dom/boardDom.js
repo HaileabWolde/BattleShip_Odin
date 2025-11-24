@@ -29,7 +29,7 @@ export const boardDom = (e, rowElement, boardId) => {
   const colorCell = (r, c) => {
     const selector = `.board[id='${boardId}'] .gridrow[id='${r}'] .gridcol[id='${c}']`;
     const cell = document.querySelector(selector);
-    if (cell) cell.style.backgroundColor = "black";
+    if (cell) cell.style.backgroundColor = "#5A5A5A";
   };
 
   // --------------------------

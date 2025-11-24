@@ -21,7 +21,7 @@ export function   shipsAppear(onShipsBoard, offloadShipsBoard){
   Allships[i].coordinates.forEach(([x, y])=> {
       const selector = `.board[id='${onShipsBoard.id}'] .gridrow[id='${x}'] .gridcol[id='${y}']`;
     const cell = document.querySelector(selector);
-    if (cell) cell.style.backgroundColor = "black";
+    if (cell) cell.style.backgroundColor = "#5A5A5A";
   })
  }
  offloadShips(offloadShipsBoard)
